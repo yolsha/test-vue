@@ -5,7 +5,7 @@
       <Btt />
     </div>
     
-    <Tabs :msg="box"/>
+    <Tabs />
     
   </div>
 </template>
@@ -18,7 +18,8 @@ export default {
   name: "App",
   data: function() {
     return {
-      box: ""
+      box: "",
+      userrate: []
     };
   },
   components: {

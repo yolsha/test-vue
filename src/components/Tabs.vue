@@ -1,9 +1,9 @@
 <template>
   <div>
+    {{usersSort}}
     <UserID
-      v-for="user in users"
-      :key="user.point"
-      :user="user"
+    v-for="user in sortFunc()"
+    :key="users.numbe"
     />
   </div>
 </template>
@@ -13,9 +13,6 @@ import UserID from "./UserID";
 
 export default {
   name: "Tabs",
-  props: {
-    msg: String
-  },
   components: {
     UserID
   },
@@ -24,47 +21,46 @@ export default {
       users: [
         {
           point: 56,
-          numbe: uRate(),
+          numbe: 5,
           name: "Adrian Schubert",
-          avatar:
-            "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
+          avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
         },
         {
           point: 66,
-          numbe: uRate(),
+          numbe: 2,
           name: "Violet Gates",
           avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
         },
         {
           point: 46,
-          numbe: uRate(),
+          numbe: 1,
           name: "Steve Jobs",
           avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
         },
         {
           point: 54,
-          numbe: uRate(),
+          numbe: 4,
           name: "Yassine Smith",
-          avatar:
-            "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
+          avatar: "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
         },
         { 
           point: 50,
-          numbe: uRate(),
+          numbe: 3,
           name: "Senior Saez",
-          avatar:
-            "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
+          avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
         }
-      ],
-      userrate: []
+      ]
     };
   },
-  methods: {
-    uRate() {
-      
-    }
+  computed: {
+  sortFunc: function () {
+      return this.users.sort(
+        function(a, b){
+          return (a.point > b.point) ? 1 : -1;
+        }
+    },
   }
-};
+}
 </script>
 
 <style>

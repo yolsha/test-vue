@@ -4,7 +4,7 @@
       <img :src="user.avatar">
     </div>
     <div>
-      <h1>User</h1>
+      <h1>User {{user.numbe}}</h1>
       <h2> {{user.name}} </h2>
     </div>
     <div>
