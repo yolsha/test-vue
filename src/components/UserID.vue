@@ -1,7 +1,15 @@
 <template>
   <div>
+    <div>
+      <img :src="user.avatar">
+    </div>
+    <div>
       <h1>User</h1>
-      <h2> {{name}} </h2>
+      <h2> {{user.name}} </h2>
+    </div>
+    <div>
+      <h3>{{user.id}}</h3>
+    </div>
   </div>
 </template>
 
@@ -9,11 +17,9 @@
 export default {
   name: "UserID",
   props: {
-    msg: String
-  },
-  data: function() {
-    return {
-      name: "asdasd"
+    user: {
+      type: Object,
+      default: () => ({})
     }
   }
 }

@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <h1>Greetings App</h1>
-    <input v-model="box" placeholder="Type your name here">
+    <div>
+      <h1>User rating</h1>
+      <Btt />
+    </div>
+    
     <Tabs :msg="box"/>
-    <Btt :msg="box"/>
-    <UserID />
+    
   </div>
 </template>
 
 <script>
 import Tabs from "./components/Tabs";
 import Btt from "./components/Btt";
-import UserID from "./components/UserID";
 
 export default {
   name: "App",
@@ -21,7 +22,7 @@ export default {
     };
   },
   components: {
-    Tabs, Btt, UserID
+    Tabs, Btt
   }
 };
 </script>

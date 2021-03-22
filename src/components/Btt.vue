@@ -1,15 +1,12 @@
 <template>
   <button>
-    {{msg}}
+    rr
   </button>
 </template>
 
 <script>
 export default {
   name: "Btt",
-  props: {
-    msg: String
-  }
 };
 </script>
 
