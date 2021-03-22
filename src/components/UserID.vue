@@ -13,9 +13,10 @@ export default {
   },
   data: function() {
     return {
-      name: "Jghjhfjhgf"
+      name: "asdasd"
+    }
   }
-};
+}
 </script>
 
 <style>

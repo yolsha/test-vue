@@ -4,7 +4,7 @@
     <input v-model="box" placeholder="Type your name here">
     <Tabs :msg="box"/>
     <Btt :msg="box"/>
-    <UserID :name/>
+    <UserID />
   </div>
 </template>
 
