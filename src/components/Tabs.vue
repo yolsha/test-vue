@@ -1,21 +1,21 @@
 <template>
-  <div v-bind="sortedArray(users)">
-    <UserID
+  <div>
+    <div v-bind="sortID(users)"></div>
+    <UserID  
       v-for="user in users"
       :key="user.point"
       :user="user"
     />
+    
   </div>
 </template>
 
 <script>
 import UserID from "./UserID";
+import UserID from "./Btt";
 
 export default {
   name: "Tabs",
-  props: {
-    msg: String
-  },
   components: {
     UserID
   },
@@ -53,25 +53,35 @@ export default {
           avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
         }
       ],
+      SortN: [
+        {
+          direc: -1,
+          simS: "<"
+        },
+        {
+          direc: 1,
+          simS: ">"
+        },
+      ]
     };
   },
-  computed: {
-  sortedArray: function() {
-    function compare(a, b) {
-      if (a.point > b.point){
-        return -1;
-      }
-      if (a.point < b.point)
-        return 1;
-      }
-      var user0 = this.users;
-      console.log(user0);
-      user0.sort(compare);
+  methods: {
+  sortID: function() {
 
-      for(var i=0; i < user0.length; i++ ){
-        user0[i].id = (i+1);
-      };
-      
+    var user0 = this.users;
+
+      for (let j = user0.length - 1; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+          if (user0[i].point < user0[i + 1].point) {
+            let temp = user0[i];
+            user0[i] = user0[i + 1];
+            user0[i + 1] = temp;
+            user0[i].id = (i+1);
+          }
+        }
+      }
+
+      console.log(user0);
       return user0;
     }
   }
