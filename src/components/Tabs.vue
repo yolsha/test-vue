@@ -1,9 +1,9 @@
 <template>
   <div>
     <UserID
-    v-for="user in users"
-    :key="user.id"
-    :user="user"
+      v-for="user in users"
+      :key="user.point"
+      :user="user"
     />
   </div>
 </template>
@@ -23,35 +23,46 @@ export default {
     return {
       users: [
         {
-          id: 1,
+          point: 56,
+          numbe: uRate(),
           name: "Adrian Schubert",
           avatar:
             "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
         },
         {
-          id: 2,
+          point: 66,
+          numbe: uRate(),
           name: "Violet Gates",
           avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
         },
         {
-          id: 3,
+          point: 46,
+          numbe: uRate(),
           name: "Steve Jobs",
           avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
         },
         {
-          id: 4,
+          point: 54,
+          numbe: uRate(),
           name: "Yassine Smith",
           avatar:
             "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
         },
-        {
-          id: 5,
+        { 
+          point: 50,
+          numbe: uRate(),
           name: "Senior Saez",
           avatar:
             "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
         }
-      ]
+      ],
+      userrate: []
     };
+  },
+  methods: {
+    uRate() {
+      
+    }
   }
 };
 </script>
