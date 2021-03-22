@@ -19,7 +19,6 @@ export default {
   data: function() {
     return {
       box: "",
-      userrate: []
     };
   },
   components: {
