@@ -12,10 +12,15 @@
 
 <script>
 import UserID from "./UserID";
-import UserID from "./Btt";
 
 export default {
   name: "Tabs",
+  props: {
+    sort: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   components: {
     UserID
   },
@@ -52,16 +57,6 @@ export default {
           name: "Senior Saez",
           avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
         }
-      ],
-      SortN: [
-        {
-          direc: -1,
-          simS: "<"
-        },
-        {
-          direc: 1,
-          simS: ">"
-        },
       ]
     };
   },

@@ -2,7 +2,8 @@
   <div id="app">
     <div>
       <h1>User rating</h1>
-      <Btt />
+      <Btt @click="ttsort += 1" />
+      <h1>{{ttsort}}</h1>
     </div>
     
     <Tabs />
@@ -19,6 +20,7 @@ export default {
   data: function() {
     return {
       box: "",
+      ttsort: -1
     };
   },
   components: {

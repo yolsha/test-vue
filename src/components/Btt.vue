@@ -1,27 +1,29 @@
 <template>
-  <button>
-    rr
-  </button>
+  <div>
+    <button>
+      rr
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Btt",
-  data: function() {
+   data: function() {
     return {
-      SortN: [
+      sortn: [
         {
-          direc: -1,
-          simS: "<"
+          direc: true,
+          text: "sdfsd<"
         },
         {
-          direc: 1,
-          simS: ">"
+          direc: false,
+          text: "sdfsd>"
         },
       ]
-    };
   }
-};
+}
+}
 </script>
 
 <style>
