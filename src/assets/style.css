@@ -1,0 +1,338 @@
+/*! --------- COLOR ------------ */
+/*! --------- NORM ------------ */
+@import url("https://fonts.googleapis.com/css2?family=Podkova:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+html, body {
+  font-size: 12pt;
+  background-color: #3471e3;
+  font-family: "Anonymous Pro", monospace;
+  color: white;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+.message primary {
+  background-color: #0d0d0d;
+}
+.message success {
+  background-color: #77d44c;
+}
+.message info {
+  background-color: #3471e3;
+}
+.message warning {
+  background-color: #f5a938;
+}
+.message danger {
+  background-color: #e33434;
+}
+
+.fs1 {
+  font-size: 1.3rem;
+}
+
+.fs2 {
+  font-size: 1.1rem;
+}
+
+.fs3 {
+  font-size: 0.9rem;
+}
+
+.fs4 {
+  font-size: 0.7rem;
+}
+
+.fs5 {
+  font-size: 0.5rem;
+}
+
+.nc1 {
+  width: 6.25%;
+}
+
+.nc2 {
+  width: 12.5%;
+}
+
+.nc3 {
+  width: 18.75%;
+}
+
+.nc4 {
+  width: 25%;
+}
+
+.nc5 {
+  width: 31.25%;
+}
+
+.nc6 {
+  width: 37.5%;
+}
+
+.nc7 {
+  width: 43.75%;
+}
+
+.nc8 {
+  width: 50%;
+}
+
+.nc9 {
+  width: 56.25%;
+}
+
+.nc10 {
+  width: 62.5%;
+}
+
+.nc11 {
+  width: 68.75%;
+}
+
+.nc12 {
+  width: 75%;
+}
+
+.nc13 {
+  width: 81.25%;
+}
+
+.nc14 {
+  width: 87.5%;
+}
+
+.nc15 {
+  width: 93.75%;
+}
+
+.nc16 {
+  width: 100%;
+}
