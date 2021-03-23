@@ -13,7 +13,7 @@
       <h2> {{user.name}} </h2>
 
       <h2> Point </h2>
-      <h3>{{user.point}}</h3>
+      <h3>{{user.rating}}</h3>
       
       <div v-if="show">
       <h2> Rating </h2>
@@ -24,7 +24,7 @@
 
     <div v-if="show">
       <h2> About </h2>
-      <h3>{{user.about}}</h3>
+      <h3>{{user.description}}</h3>
     </div>
 
   </div>
