@@ -10,7 +10,7 @@
 
     <UserID
       v-on:click="$emit('changeSort')"
-      v-for="user in users"
+      v-for="user in userData"
       :key="user.point"
       :user="user"
     />
@@ -47,11 +47,23 @@ export default {
           Rate: null
         },
       ]
-    }
+    };
+  },
+  
+  created() {
+      axios.get("https://my-json-server.typicode.com/Vespand/crmm-tasks/users/")
+        .then(response => {
+          this.userData = response.data;
+          console.log(this.userData);
+        })
+        .catch(e => { this.errors.push(e) })
+
+        return this.userData;
   },
 
   methods: {
-  sortData: function() {
+    
+    sortData: function() {
     
     var chng = this.chngSrt;
     var user0 = this.userData;
@@ -67,27 +79,10 @@ export default {
         }
       }
       return user0;
-    },
+    }
   },
 
-   mounted: function() {
-    var mntusr = this;
-    axios.get("https://my-json-server.typicode.com/Vespand/crmm-tasks/users/")
-      .then(function(response) {
-        
-        mntusr.tableData = response.data;
-        var tblDt = mntusr.tableData;
-        
-        console.log(this.userData);
-        return this.userData = tblDt;
-      })
-      .catch(function(error) {
-        console.error("Error loading data.");
-        console.error(error);
-      })
-  }
-
-  }
+ }
 
 </script>
 
