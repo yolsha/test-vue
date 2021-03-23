@@ -7,11 +7,6 @@
       <Btt v-on:changeSort="chngSrt =! chngSrt"/>
     </div>
 
-    <div v-bind="sortData(userData)">
-      <h1>User rating</h1>
-      <Btt v-on:changeSort="chngSrt =! chngSrt"/>
-    </div>
-
     <UserID
       v-on:click="$emit('changeSort')"
       v-for="user in users"
@@ -27,7 +22,6 @@
 
 import UserID from "./UserID";
 import Btt from "./Btt";
-import Axios from "axios";
 
 export default {
   name: "Tabs",
@@ -37,16 +31,6 @@ export default {
   data: function() {
     return {
       chngSrt: false,
-      options: {
-        headings: {
-          id: "#",
-          name: "Name",
-          description: "Descr",
-          avatar: "Ava",
-          rating: "Rate"
-        }
-      },
-      userData: [],
       users: [
         {
           point: 56,
@@ -102,29 +86,12 @@ export default {
           }
         }
       }
-
-      console.log(user0);
+      
       return user0;
     }
 
-    
-  },
-  mounted: function() {
-    var mntusr = this;
-    Axios.get("https://my-json-server.typicode.com/Vespand/crmm-tasks/users/")
-      .then(function(response) {
-        
-        mntusr.tableData = response.data;
-        var tblDt = mntusr.tableData;
-        
-        console.log(this.userData);
-        return this.userData = tblDt;
-      })
-      .catch(function(error) {
-        console.error("Error loading data.");
-        console.error(error);
-      })
   }
+ 
 }
 </script>
 

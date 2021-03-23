@@ -2,12 +2,7 @@
 
   <div>
 
-    <div v-bind="sortID(users)">
-      <h1>User rating</h1>
-      <Btt v-on:changeSort="chngSrt =! chngSrt"/>
-    </div>
-
-    <div v-bind="sortData(userData)">
+    <div >
       <h1>User rating</h1>
       <Btt v-on:changeSort="chngSrt =! chngSrt"/>
     </div>
@@ -19,6 +14,15 @@
       :user="user"
     />
 
+    <div id="app">
+  <h1>Bitcoin Price Index</h1>
+  <div v-for="(title, index) in titles" :key="index">
+      <div
+        class="p-4 shadow-md bg-white rounded border bg-white mb-2 list--item"
+      >{{index}}: {{ title.body }}</div>
+    </div>
+
+    </div>
   </div>
 
 </template>
@@ -27,70 +31,70 @@
 
 import UserID from "./UserID";
 import Btt from "./Btt";
-import Axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "Tabs",
+  name: "DataTabs",
   components: {
     UserID, Btt
   },
   data: function() {
     return {
       chngSrt: false,
-      options: {
-        headings: {
-          id: "#",
-          name: "Name",
-          description: "Descr",
-          avatar: "Ava",
-          rating: "Rate"
-        }
-      },
-      userData: [],
-      users: [
-        {
-          point: 56,
-          id: 1,
-          name: "Adrian Schubert",
-          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
-          avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
-        },
-        {
-          point: 66,
-          id: 2,
-          name: "Violet Gates",
-          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
-          avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
-        },
-        {
-          point: 46,
-          id: 3,
-          name: "Steve Jobs",
-          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
-          avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
-        },
-        {
-          point: 54,
-          id: 4,
-          name: "Yassine Smith",
-          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
-          avatar: "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
-        },
+      userData: [
         { 
-          point: 50,
-          id: 5,
-          name: "Senior Saez",
-          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
-          avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
-        }
-      ]
-    };
+          id: 1,
+          Ava: "",
+          Descr: "",
+          UserID: "",
+          Name: "",
+          Rate: null
+        },
+      ],
+      countryList: []
+    }
   },
+ mounted() {
+    this.getAll();
+  },
+
+  watch: {
+    searchValue: function() {
+      this.getCountries(this.searchValue);
+    }
+  },
+
+  props: ["searchValue", "region"],
+
   methods: {
-  sortID: function() {
+    getAll() {
+      axios
+        .get("https://restcountries.eu/rest/v2/all")
+        .then(response => {
+          this.countryList = response.data;
+        });
+        console.log(this.countryList);
+    },
+
+    getCountries() {
+      axios
+        .get("https://restcountries.eu/rest/v2/name/" + this.searchValue)
+        .then(response => {
+          this.countryList = [];
+          response.data.forEach(e => {
+            if (e.region === this.region || this.region === "All") {
+              this.countryList.push(e);
+            }
+          });
+          // this.countryList = response.data;
+        });
+        console.log(this.countryList);
+    },
+    
+  sortData: function() {
     
     var chng = this.chngSrt;
-    var user0 = this.users;
+    var user0 = this.userData;
   
       for (let j = user0.length - 1; j > 0; j--) {
         for (let i = 0; i < j; i++) {
@@ -103,29 +107,13 @@ export default {
         }
       }
 
-      console.log(user0);
+      
       return user0;
-    }
-
-    
+    },
   },
-  mounted: function() {
-    var mntusr = this;
-    Axios.get("https://my-json-server.typicode.com/Vespand/crmm-tasks/users/")
-      .then(function(response) {
-        
-        mntusr.tableData = response.data;
-        var tblDt = mntusr.tableData;
-        
-        console.log(this.userData);
-        return this.userData = tblDt;
-      })
-      .catch(function(error) {
-        console.error("Error loading data.");
-        console.error(error);
-      })
+
   }
-}
+
 </script>
 
 <style>
