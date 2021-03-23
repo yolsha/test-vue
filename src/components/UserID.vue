@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div 
+   
+  v-on:click="show =! show">
 
     <div>
       <img :src="user.avatar">
@@ -19,7 +21,7 @@
       </div>
 
     </div>
-    
+
     <div v-if="show">
       <h2> About </h2>
       <h3>{{user.about}}</h3>
