@@ -2,10 +2,11 @@
 
   <div>
 
-    <div >
+    <div v-bind="sortData(userData)">
       <h1>User rating</h1>
       <Btt v-on:changeSort="chngSrt =! chngSrt"/>
     </div>
+    
 
     <UserID
       v-on:click="$emit('changeSort')"
@@ -16,11 +17,6 @@
 
     <div id="app">
   <h1>Bitcoin Price Index</h1>
-  <div v-for="(title, index) in titles" :key="index">
-      <div
-        class="p-4 shadow-md bg-white rounded border bg-white mb-2 list--item"
-      >{{index}}: {{ title.body }}</div>
-    </div>
 
     </div>
   </div>
@@ -50,47 +46,11 @@ export default {
           Name: "",
           Rate: null
         },
-      ],
-      countryList: []
+      ]
     }
   },
- mounted() {
-    this.getAll();
-  },
-
-  watch: {
-    searchValue: function() {
-      this.getCountries(this.searchValue);
-    }
-  },
-
-  props: ["searchValue", "region"],
 
   methods: {
-    getAll() {
-      axios
-        .get("https://restcountries.eu/rest/v2/all")
-        .then(response => {
-          this.countryList = response.data;
-        });
-        console.log(this.countryList);
-    },
-
-    getCountries() {
-      axios
-        .get("https://restcountries.eu/rest/v2/name/" + this.searchValue)
-        .then(response => {
-          this.countryList = [];
-          response.data.forEach(e => {
-            if (e.region === this.region || this.region === "All") {
-              this.countryList.push(e);
-            }
-          });
-          // this.countryList = response.data;
-        });
-        console.log(this.countryList);
-    },
-    
   sortData: function() {
     
     var chng = this.chngSrt;
@@ -106,11 +66,26 @@ export default {
           }
         }
       }
-
-      
       return user0;
     },
   },
+
+   mounted: function() {
+    var mntusr = this;
+    axios.get("https://my-json-server.typicode.com/Vespand/crmm-tasks/users/")
+      .then(function(response) {
+        
+        mntusr.tableData = response.data;
+        var tblDt = mntusr.tableData;
+        
+        console.log(this.userData);
+        return this.userData = tblDt;
+      })
+      .catch(function(error) {
+        console.error("Error loading data.");
+        console.error(error);
+      })
+  }
 
   }
 
