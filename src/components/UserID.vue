@@ -2,28 +2,33 @@
   <div>
 
     <div>
-      <UserCart />
+      <img :src="user.avatar">
     </div>
 
     <div>
-      <img :src="user.avatar">
-    </div>
-    <div>
-      <h1>User {{user.numbe}}</h1>
+
+      <h1>User</h1>
       <h2> {{user.name}} </h2>
-    </div>
-    <div>
+
+      <h2> Point </h2>
       <h3>{{user.point}}</h3>
+      
+      <div v-if="show">
+      <h2> Rating </h2>
+      <h3>{{user.id}}</h3>
+      </div>
+
     </div>
-    <div>
+    
+    <div v-if="show">
       <h2> About </h2>
       <h3>{{user.about}}</h3>
     </div>
+
   </div>
 </template>
 
 <script>
-import UserCart from "./UserCart";
 
 export default {
   name: "UserID",
@@ -33,8 +38,10 @@ export default {
       default: () => ({})
     }
   },
-  components: {
-    UserCart
+  data: function() {
+    return{
+      show: false
+    }
   }
 }
 </script>
