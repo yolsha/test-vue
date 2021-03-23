@@ -1,60 +1,67 @@
 <template>
   <div>
-    <div v-bind="sortID(users)"></div>
-    <UserID  
+
+    <div v-bind="sortID(users)">
+      <h1>User rating</h1>
+      <Btt v-on:changeSort="chngSrt =! chngSrt"/>
+    </div>
+
+    <UserID
+      v-on:click="$emit('changeSort')"
       v-for="user in users"
       :key="user.point"
       :user="user"
     />
-    
+
   </div>
 </template>
 
 <script>
 import UserID from "./UserID";
+import Btt from "./Btt";
 
 export default {
   name: "Tabs",
-  props: {
-    sort: {
-      type: Object,
-      default: () => ({})
-    }
-  },
   components: {
-    UserID
+    UserID, Btt
   },
   data: function() {
     return {
+      chngSrt: false,
       users: [
         {
           point: 56,
           id: 1,
           name: "Adrian Schubert",
+          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
           avatar: "https://pickaface.net/gallery/avatar/unr_sample_161118_2054_ynlrg.png"
         },
         {
           point: 66,
           id: 2,
           name: "Violet Gates",
+          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
           avatar: "https://pickaface.net/gallery/avatar/freud51c8b3f65e7dc.png"
         },
         {
           point: 46,
           id: 3,
           name: "Steve Jobs",
+          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
           avatar: "https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png"
         },
         {
           point: 54,
           id: 4,
           name: "Yassine Smith",
+          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
           avatar: "https://pickaface.net/gallery/avatar/unr_yassine_191124_2012_3gngr.png"
         },
         { 
           point: 50,
           id: 5,
           name: "Senior Saez",
+          about: "Using Vuex4 With Vue3 And Ionic Framework #vuex #ionic #vuejs A simple introduction to using vuex 4 in vuejs version",
           avatar: "https://pickaface.net/gallery/avatar/elmedinilla541c03412955c.png"
         }
       ]
@@ -62,12 +69,12 @@ export default {
   },
   methods: {
   sortID: function() {
-
+    var chng = this.chngSrt;
     var user0 = this.users;
-
+  
       for (let j = user0.length - 1; j > 0; j--) {
         for (let i = 0; i < j; i++) {
-          if (user0[i].point < user0[i + 1].point) {
+          if ( (user0[i].point < user0[i + 1].point) === chng ) {
             let temp = user0[i];
             user0[i] = user0[i + 1];
             user0[i + 1] = temp;

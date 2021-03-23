@@ -1,5 +1,10 @@
 <template>
   <div>
+
+    <div>
+      <UserCart />
+    </div>
+
     <div>
       <img :src="user.avatar">
     </div>
@@ -10,10 +15,16 @@
     <div>
       <h3>{{user.point}}</h3>
     </div>
+    <div>
+      <h2> About </h2>
+      <h3>{{user.about}}</h3>
+    </div>
   </div>
 </template>
 
 <script>
+import UserCart from "./UserCart";
+
 export default {
   name: "UserID",
   props: {
@@ -21,6 +32,9 @@ export default {
       type: Object,
       default: () => ({})
     }
+  },
+  components: {
+    UserCart
   }
 }
 </script>

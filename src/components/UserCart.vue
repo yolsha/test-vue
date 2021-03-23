@@ -6,16 +6,21 @@
     <div>
       <h1>User</h1>
       <h2> {{user.name}} </h2>
+      <h2> Point </h2>
+      <h3>{{user.point}}</h3>
+      <h2> Rating </h2>
+      <h3>{{user.id}}</h3>
     </div>
     <div>
-      <h3>{{user.point}}</h3>
+      <h2> About </h2>
+      <h3>{{user.about}}</h3>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "UserID",
+  name: "UserCart",
   props: {
     user: {
       type: Object,

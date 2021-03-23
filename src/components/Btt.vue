@@ -1,28 +1,14 @@
 <template>
   <div>
-    <button>
-      rr
+    <button v-on:click="$emit('changeSort')">
+      SORT
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Btt",
-   data: function() {
-    return {
-      sortn: [
-        {
-          direc: true,
-          text: "sdfsd<"
-        },
-        {
-          direc: false,
-          text: "sdfsd>"
-        },
-      ]
-  }
-}
+  name: "Btt",  
 }
 </script>
 
