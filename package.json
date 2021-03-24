@@ -11,6 +11,7 @@
     "autoprefixer-stylus": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "postcss-preset-env": "^6.7.0",
     "survey-vue": "^1.8.36",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1",
